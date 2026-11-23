@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Contacts from '../components/Contacts.jsx'
 import PageHeader from '../components/PageHeader.jsx'
+import { Rickshaw } from '../components/Scenery.jsx'
 import Reveal from '../components/Reveal.jsx'
 import { explore, faqs, gettingThere, venuePhotos, weather } from '../data/travel.js'
 import { wedding } from '../data/wedding.js'
@@ -105,6 +106,7 @@ export default function Venue() {
             <p className="hindi">यात्रा</p>
             <h2>Getting to Jaipur</h2>
           </Reveal>
+          <Rickshaw className="venue-travel__road" />
           <div className="venue-travel__grid">
             {gettingThere.map((item, index) => (
               <Reveal key={item.title} className="venue-card" delay={index * 100}>

@@ -13,6 +13,7 @@ export default function Photo({
   caption,
   priority = false,
   className = '',
+  children,
 }) {
   const photo = photoSources(id)
   if (!photo) return null
@@ -29,6 +30,7 @@ export default function Photo({
           decoding="async"
           style={{ objectPosition: photo.focus }}
         />
+        {children}
       </div>
       {caption && <figcaption className="photo__caption">{caption}</figcaption>}
     </figure>

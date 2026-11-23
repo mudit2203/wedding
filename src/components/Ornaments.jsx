@@ -25,14 +25,18 @@ export function Toran({ count = 13, className = '' }) {
         const isLeaf = i % 2 === 1
         return isLeaf ? (
           <g key={i} transform={`translate(${x} ${cy})`}>
-            <path className="toran__leaf" d="M0 0 C 7 10, 6 24, 0 32 C -6 24, -7 10, 0 0 Z" />
-            <path d="M0 2 L0 29" stroke="#3f5a26" strokeWidth="0.8" opacity="0.6" />
+            <g className="toran__drop" style={{ '--i': i }}>
+              <path className="toran__leaf" d="M0 0 C 7 10, 6 24, 0 32 C -6 24, -7 10, 0 0 Z" />
+              <path d="M0 2 L0 29" stroke="#3f5a26" strokeWidth="0.8" opacity="0.6" />
+            </g>
           </g>
         ) : (
           <g key={i} transform={`translate(${x} ${cy + 6})`}>
-            <circle r="9" className="toran__petals" />
-            <circle r="6" className="toran__petals toran__petals--inner" />
-            <circle r="2.4" fill="#b3541e" />
+            <g className="toran__drop" style={{ '--i': i }}>
+              <circle r="9" className="toran__petals" />
+              <circle r="6" className="toran__petals toran__petals--inner" />
+              <circle r="2.4" fill="#b3541e" />
+            </g>
           </g>
         )
       })}

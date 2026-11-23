@@ -29,6 +29,10 @@
   }
 }
 
+.hero .birds {
+  inset: 0 0 45%;
+}
+
 .hero__text {
   position: absolute;
   inset: 0 0 auto;
@@ -122,6 +126,12 @@
   height: auto;
 }
 
+.invitation__cloth {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-5);
+}
+
 .invitation__hindi {
   font-size: var(--step-1);
   color: var(--olive-deep);
@@ -174,7 +184,7 @@
 
 /* Countdown band */
 .countdown-band {
-  padding-block: var(--space-8);
+  padding-top: var(--space-8);
   background:
     radial-gradient(80% 120% at 50% 0%, rgb(217 130 143 / 0.16), transparent 60%),
     var(--olive-deep);
@@ -193,9 +203,14 @@
   color: var(--gold-soft);
 }
 
+.countdown-band__road {
+  margin-top: var(--space-6);
+  border-bottom-color: rgb(230 232 210 / 0.25);
+}
+
 .countdown-band__title {
   margin-top: calc(-1 * var(--space-4));
-  color: var(--sage);
+  color: var(--sage-light);
 }
 
 .button--light {

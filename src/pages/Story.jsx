@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import PageHeader from '../components/PageHeader.jsx'
 import Photo from '../components/Photo.jsx'
+import { WordReveal } from '../components/Scenery.jsx'
 import Reveal from '../components/Reveal.jsx'
 import { useInView } from '../hooks/useInView.js'
 import { chapters, storyStack } from '../data/story.js'
@@ -37,7 +38,7 @@ function Chapter({ chapter, index }) {
       <div className="chapter__text">
         <p className="eyebrow chapter__when">{chapter.when}</p>
         <h2 className="chapter__title">{chapter.title}</h2>
-        <p>{chapter.text}</p>
+        <WordReveal text={chapter.text} />
       </div>
       {chapter.photo && (
         <div className="chapter__photo">

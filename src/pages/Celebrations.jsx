@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import Monogram from '../components/Monogram.jsx'
 import PageHeader from '../components/PageHeader.jsx'
+import { Birds, Shutters } from '../components/Scenery.jsx'
 import Reveal from '../components/Reveal.jsx'
 import { dressCodes } from '../data/dressCodes.js'
 import { days } from '../data/events.js'
@@ -18,6 +19,8 @@ function Postcard({ event, date }) {
         <span className="postcard__sun" />
         <span className="postcard__skyline" />
         <span className="postcard__hindi hindi">{event.hindi}</span>
+        {!event.night && <Birds />}
+        <Shutters />
       </div>
 
       <div className="postcard__body">

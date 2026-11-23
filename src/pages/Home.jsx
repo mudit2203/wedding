@@ -4,6 +4,7 @@ import InlineVideo from '../components/InlineVideo.jsx'
 import Monogram from '../components/Monogram.jsx'
 import { Divider, Toran } from '../components/Ornaments.jsx'
 import Reveal from '../components/Reveal.jsx'
+import { Birds, Rickshaw, Unroll } from '../components/Scenery.jsx'
 import { wedding } from '../data/wedding.js'
 import './Home.css'
 
@@ -51,6 +52,7 @@ function Hero() {
           fetchPriority="high"
         />
       </div>
+      <Birds />
       <div className="hero__text">
         <p className="hero__invocation hindi">{wedding.invocation.hindi}</p>
         <Monogram className="hero__monogram" />
@@ -78,34 +80,36 @@ function Invitation() {
           <p className="eyebrow">{invocation.blessing}</p>
         </Reveal>
         <Divider />
-        <Reveal>
-          <p className="hindi invitation__hindi">{invitation.hindi}</p>
-          <p className="lead">{invitation.english}</p>
-        </Reveal>
+        <Unroll>
+          <div className="invitation__cloth">
+            <p className="hindi invitation__hindi">{invitation.hindi}</p>
+            <p className="lead">{invitation.english}</p>
 
-        <div className="invitation__couple">
-          <Reveal className="invitation__person">
-            <h2 className="script">{wedding.bride}</h2>
-            <p className="hindi">{families.bride.hindi}</p>
-            <p className="eyebrow">{families.bride.english}</p>
-          </Reveal>
-          <p className="invitation__amp script" aria-hidden="true">
-            &amp;
-          </p>
-          <Reveal className="invitation__person" delay={150}>
-            <h2 className="script">{wedding.groom}</h2>
-            <p className="hindi">{families.groom.hindi}</p>
-            <p className="eyebrow">{families.groom.english}</p>
-          </Reveal>
-        </div>
+            <div className="invitation__couple">
+              <div className="invitation__person">
+                <h2 className="script">{wedding.bride}</h2>
+                <p className="hindi">{families.bride.hindi}</p>
+                <p className="eyebrow">{families.bride.english}</p>
+              </div>
+              <p className="invitation__amp script" aria-hidden="true">
+                &amp;
+              </p>
+              <div className="invitation__person">
+                <h2 className="script">{wedding.groom}</h2>
+                <p className="hindi">{families.groom.hindi}</p>
+                <p className="eyebrow">{families.groom.english}</p>
+              </div>
+            </div>
 
-        <Reveal className="invitation__when">
-          <p className="eyebrow">{wedding.dateLabel}</p>
-          <p className="invitation__venue">
-            {wedding.venue.name}, {wedding.venue.city}
-          </p>
-          <p className="muted">Celebrations from {wedding.celebrationDates}</p>
-        </Reveal>
+            <div className="invitation__when">
+              <p className="eyebrow">{wedding.dateLabel}</p>
+              <p className="invitation__venue">
+                {wedding.venue.name}, {wedding.venue.city}
+              </p>
+              <p className="muted">Celebrations from {wedding.celebrationDates}</p>
+            </div>
+          </div>
+        </Unroll>
       </div>
     </section>
   )
@@ -124,6 +128,7 @@ function CountdownBand() {
           Will you join us? RSVP
         </Link>
       </div>
+      <Rickshaw tone="light" className="countdown-band__road" />
     </section>
   )
 }

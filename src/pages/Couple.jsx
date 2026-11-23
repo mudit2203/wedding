@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import PageHeader from '../components/PageHeader.jsx'
 import Photo from '../components/Photo.jsx'
+import { Shutters } from '../components/Scenery.jsx'
 import Reveal from '../components/Reveal.jsx'
 import { numbers, profiles, quiz } from '../data/couple.js'
 import './Couple.css'
@@ -14,7 +15,9 @@ function Profile({ profile, flip }) {
           {profile.initial}
         </span>
         <Reveal className="profile__main">
-          <Photo id={main} shape="arch" ratio="3 / 4" sizes="(min-width: 52rem) 22rem, 70vw" />
+          <Photo id={main} shape="arch" ratio="3 / 4" sizes="(min-width: 52rem) 22rem, 70vw">
+            <Shutters />
+          </Photo>
         </Reveal>
         {more.map((id, index) => (
           <Reveal key={id} className={`profile__small profile__small--${index + 1}`} delay={200 + index * 150}>

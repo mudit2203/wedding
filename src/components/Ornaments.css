@@ -21,6 +21,23 @@
   fill: #5d7d33;
 }
 
+/* Each flower and leaf sways a little on the string, slightly out of step. */
+.toran__drop {
+  transform-box: fill-box;
+  transform-origin: 50% 0;
+  animation: toran-sway 3.6s ease-in-out calc(var(--i) * -0.4s) infinite alternate;
+}
+
+@keyframes toran-sway {
+  from {
+    rotate: -5deg;
+  }
+
+  to {
+    rotate: 5deg;
+  }
+}
+
 .divider {
   display: flex;
   align-items: center;
