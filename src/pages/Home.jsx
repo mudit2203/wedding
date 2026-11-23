@@ -47,9 +47,6 @@ function Invitation() {
   return (
     <section className="invitation section">
       <div className="narrow invitation__inner">
-        <Reveal className="invitation__ganesh">
-          <LineArt name="ganesh" />
-        </Reveal>
         <Reveal className="invitation__deity">
           <img src="/images/blessing/govind-dev-ji.webp" alt="Shri Govind Dev Ji" loading="lazy" width="495" height="619" />
         </Reveal>

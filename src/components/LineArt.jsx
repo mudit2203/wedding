@@ -1,7 +1,7 @@
 import './LineArt.css'
 
 /*
- * Fine gold line drawings that decorate the site: Ganesh ji, rajnigandha,
+ * Fine gold line drawings that decorate the site: rajnigandha,
  * a lotus, a matka (kalash) and a Jaipur skyline. Each is a small static SVG
  * in /images/line, purely decorative.
  */
