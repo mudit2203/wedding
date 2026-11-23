@@ -48,6 +48,8 @@ export default function Opening() {
       return () => clearTimeout(id)
     }
     if (stage === 'leaving') {
+      // Let the hero behind start its own opening as the arch fades away.
+      window.dispatchEvent(new Event('mh:opened'))
       const id = setTimeout(() => setStage('done'), 1200)
       return () => clearTimeout(id)
     }
