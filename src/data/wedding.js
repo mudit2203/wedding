@@ -58,5 +58,5 @@ export const navLinks = [
   { to: '/celebrations', label: 'Celebrations', hindi: 'उत्सव' },
   { to: '/dress-code', label: 'Dress Code', hindi: 'पहनावा' },
   { to: '/venue', label: 'Venue & Travel', hindi: 'विवाह स्थल' },
-  { to: '/moments', label: 'Moments', hindi: 'लम्हे' },
+  { to: '/contact', label: 'Contact', hindi: 'संपर्क' },
 ]

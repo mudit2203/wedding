@@ -25,9 +25,6 @@ export default function Footer() {
               {link.label}
             </Link>
           ))}
-          <Link to="/venue#contact" viewTransition>
-            Contact
-          </Link>
           <Link to="/rsvp" viewTransition>
             RSVP
           </Link>

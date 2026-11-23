@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import Countdown from '../components/Countdown.jsx'
 import InlineVideo from '../components/InlineVideo.jsx'
-import Garland from '../components/Garland.jsx'
+import Rajnigandha from '../components/Rajnigandha.jsx'
 import Hero from '../components/Hero.jsx'
 import { Divider } from '../components/Ornaments.jsx'
 import Reveal from '../components/Reveal.jsx'
@@ -46,13 +46,23 @@ function Invitation() {
   return (
     <section className="invitation section">
       <div className="narrow invitation__inner">
-        <Reveal className="invitation__deity">
-          <img src="/images/blessing/govind-dev-ji.webp" alt="Shri Govind Dev Ji" loading="lazy" width="495" height="619" />
-        </Reveal>
-        <Reveal>
-          <p className="hindi invitation__hindi">{invocation.blessingHindi}</p>
-          <p className="eyebrow">{invocation.blessing}</p>
-        </Reveal>
+        <div className="invitation__blessings">
+          <Reveal className="blessing">
+            <img src="/images/blessing/ganesh.svg" alt="Shri Ganesh ji" width="400" height="450" loading="lazy" />
+            <p className="hindi blessing__hindi">{invocation.hindi}</p>
+          </Reveal>
+          <Reveal className="blessing" delay={200}>
+            <img
+              src="/images/blessing/charan.svg"
+              alt="The holy feet of Shri Govind Dev Ji"
+              width="350"
+              height="300"
+              loading="lazy"
+            />
+            <p className="hindi blessing__hindi">{invocation.blessingHindi}</p>
+            <p className="eyebrow">{invocation.blessing}</p>
+          </Reveal>
+        </div>
         <Divider />
         <Unroll>
           <div className="invitation__cloth">
@@ -133,7 +143,7 @@ function Families() {
 function Explore() {
   return (
     <section className="explore section">
-      <Garland />
+      <Rajnigandha />
       <div className="container">
         <Reveal as="header" className="explore__header">
           <p className="hindi">आइए, जानिए</p>
@@ -143,7 +153,7 @@ function Explore() {
           {explore.map((item, index) => (
             <Reveal as="li" key={item.to} delay={index * 100}>
               <Link to={item.to} viewTransition className="explore__card">
-                <div className={`explore__image ${item.contain ? 'explore__image--contain' : ''}`}>
+                <div className={`explore__image gloss ${item.contain ? 'explore__image--contain' : ''}`}>
                   <img src={item.image} alt="" loading="lazy" />
                 </div>
                 <p className="hindi explore__hindi">{item.hindi}</p>

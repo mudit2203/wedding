@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import Contacts from '../components/Contacts.jsx'
 import PageHeader from '../components/PageHeader.jsx'
 import { Rickshaw } from '../components/Scenery.jsx'
 import Reveal from '../components/Reveal.jsx'
@@ -58,6 +57,7 @@ export default function Venue() {
     <>
       <PageHeader
         gate="sandstone"
+        decor="ashok"
         hindi="विवाह स्थल"
         title="Venue & Travel"
         intro={`${venue.name}, ${venue.city}. Our home for the celebrations on ${venue.dates}.`}
@@ -168,7 +168,6 @@ export default function Venue() {
         </div>
       </section>
 
-      <Contacts />
     </>
   )
 }

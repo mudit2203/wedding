@@ -1,0 +1,80 @@
+.rajnigandha {
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.rajnigandha__defs {
+  position: absolute;
+}
+
+.rajnigandha__svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  filter: drop-shadow(0 3px 3px rgb(20 30 10 / 0.22));
+}
+
+.rajnigandha__svg--narrow {
+  display: none;
+}
+
+@media (max-width: 40rem) {
+  .rajnigandha__svg--wide {
+    display: none;
+  }
+
+  .rajnigandha__svg--narrow {
+    display: block;
+  }
+}
+
+.rajnigandha__thread {
+  fill: none;
+  stroke: #6f7d3a;
+  stroke-width: 1;
+}
+
+.rajnigandha__tassel {
+  fill: none;
+  stroke: #d8b25e;
+  stroke-width: 1.2;
+  stroke-linecap: round;
+}
+
+/* The swags fall open from the centre, then the strings start to sway. */
+.rajnigandha__swag {
+  animation: swag-in 1.4s var(--ease) var(--delay) both;
+}
+
+.rajnigandha__drop {
+  animation:
+    swag-in 1.4s var(--ease) var(--delay) both,
+    drop-sway 4.6s ease-in-out calc(var(--delay) + 1.4s) infinite alternate;
+}
+
+@keyframes swag-in {
+  from {
+    opacity: 0;
+    translate: 0 -24px;
+  }
+}
+
+@keyframes drop-sway {
+  from {
+    rotate: -1.8deg;
+  }
+
+  to {
+    rotate: 1.8deg;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rajnigandha__swag,
+  .rajnigandha__drop {
+    animation: none;
+  }
+}

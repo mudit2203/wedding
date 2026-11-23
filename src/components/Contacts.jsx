@@ -5,19 +5,26 @@ import './Contacts.css'
 const formatPhone = (phone) => `+91 ${phone.slice(0, 5)} ${phone.slice(5)}`
 
 /** Who to call or message, plus the couple's Instagram. */
-export default function Contacts({ id = 'contact' }) {
+export default function Contacts({ id = 'contact', header = true }) {
   return (
-    <section id={id} className="contacts section" aria-labelledby={`${id}-title`}>
+    <section
+      id={id}
+      className="contacts section"
+      aria-labelledby={header ? `${id}-title` : undefined}
+      aria-label={header ? undefined : 'Family contacts'}
+    >
       <div className="container">
-        <Reveal as="header" className="contacts__header">
-          <p className="hindi">संपर्क करें</p>
-          <h2 id={`${id}-title`}>Get in touch</h2>
-          <p className="muted">For travel, stay or anything at all, call or message the family.</p>
-        </Reveal>
+        {header && (
+          <Reveal as="header" className="contacts__header">
+            <p className="hindi">संपर्क करें</p>
+            <h2 id={`${id}-title`}>Get in touch</h2>
+            <p className="muted">For travel, stay or anything at all, call or message the family.</p>
+          </Reveal>
+        )}
 
         <ul className="contacts__list">
           {contacts.map((person, index) => (
-            <Reveal as="li" key={person.phone} className="contact" delay={index * 100}>
+            <Reveal as="li" key={person.phone} className="contact gloss" delay={index * 100}>
               <p className="eyebrow contact__role">
                 {person.role} · <span className="hindi">{person.roleHindi}</span>
               </p>

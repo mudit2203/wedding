@@ -53,6 +53,6 @@ export const faqs = [
   },
   {
     question: 'Who do we call if we get lost?',
-    answer: 'Call or WhatsApp any of the family contacts listed just below. Someone will always pick up.',
+    answer: 'Call or WhatsApp any of the family contacts on the Contact page. Someone will always pick up.',
   },
 ]

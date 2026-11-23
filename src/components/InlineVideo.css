@@ -23,22 +23,3 @@
   border-radius: inherit;
   pointer-events: none;
 }
-
-.inline-video__sound {
-  position: absolute;
-  left: 50%;
-  bottom: var(--space-5);
-  z-index: 1;
-  translate: -50% 0;
-  padding: var(--space-2) var(--space-4);
-  border: 0;
-  border-radius: 999px;
-  background: rgb(43 46 28 / 0.6);
-  color: var(--ivory);
-  font-family: var(--font-sans);
-  font-size: 0.72rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  cursor: pointer;
-  backdrop-filter: blur(6px);
-}

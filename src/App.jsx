@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect } from 'react'
-import { Outlet, Route, Routes, useLocation } from 'react-router-dom'
+import { Navigate, Outlet, Route, Routes, useLocation } from 'react-router-dom'
 import Footer from './components/Footer.jsx'
 import Nav from './components/Nav.jsx'
 import Opening from './components/Opening.jsx'
@@ -13,7 +13,7 @@ const Couple = lazy(() => import('./pages/Couple.jsx'))
 const Celebrations = lazy(() => import('./pages/Celebrations.jsx'))
 const DressCode = lazy(() => import('./pages/DressCode.jsx'))
 const Venue = lazy(() => import('./pages/Venue.jsx'))
-const Moments = lazy(() => import('./pages/Moments.jsx'))
+const Contact = lazy(() => import('./pages/Contact.jsx'))
 const Rsvp = lazy(() => import('./pages/Rsvp.jsx'))
 const NotFound = lazy(() => import('./pages/NotFound.jsx'))
 
@@ -71,7 +71,8 @@ export default function App() {
           <Route path="celebrations" element={<Celebrations />} />
           <Route path="dress-code" element={<DressCode />} />
           <Route path="venue" element={<Venue />} />
-          <Route path="moments" element={<Moments />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="moments" element={<Navigate to="/contact" replace />} />
           <Route path="rsvp" element={<Rsvp />} />
           <Route path="*" element={<NotFound />} />
         </Route>

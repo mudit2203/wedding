@@ -12,7 +12,7 @@ function Postcard({ event, date }) {
   return (
     <article
       id={event.id}
-      className={`postcard ${event.night ? 'postcard--night' : ''}`}
+      className={`postcard gloss ${event.night ? 'postcard--night' : ''}`}
       style={{ '--sky-top': event.sky[0], '--sky-bottom': event.sky[1] }}
     >
       <div className="postcard__scene" aria-hidden="true">
@@ -76,6 +76,7 @@ export default function Celebrations() {
     <>
       <PageHeader
         gate="peacock"
+        decor="rajnigandha"
         hindi="उत्सव"
         title="The Celebrations"
         intro="Four days of rituals, music and colour, from the first mehendi to the seven pheras."
