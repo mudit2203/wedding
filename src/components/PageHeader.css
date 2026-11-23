@@ -24,7 +24,8 @@
   z-index: 1;
   display: grid;
   gap: var(--space-3);
-  padding-top: var(--space-7);
+  /* Room for the short strands of marigolds in the middle. */
+  padding-top: clamp(6.5rem, 4rem + 5vw, 8.5rem);
 }
 
 .page-header__hindi {

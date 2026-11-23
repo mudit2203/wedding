@@ -1,15 +1,15 @@
-import { Toran } from './Ornaments.jsx'
+import Garland from './Garland.jsx'
 import { Birds, WordReveal } from './Scenery.jsx'
 import './PageHeader.css'
 
 /**
- * The opening band of each inner page: a toran, the page title in Hindi
+ * The opening band of each inner page: hanging marigolds, the page title in Hindi
  * and English, and an optional short introduction.
  */
 export default function PageHeader({ hindi, title, intro, children }) {
   return (
     <header className="page-header">
-      <Toran className="page-header__toran" />
+      <Garland />
       <Birds />
       <div className="page-header__inner narrow">
         <p className="page-header__hindi hindi">{hindi}</p>

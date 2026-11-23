@@ -1,48 +1,8 @@
 /*
- * Small hand-drawn ornaments used across the site: the marigold toran,
- * a section divider and the brass diya. All are plain SVG with no images.
+ * Small hand-drawn ornaments used across the site: a section divider and
+ * the brass diya. All are plain SVG with no images.
  */
 import './Ornaments.css'
-
-/** A string of marigolds and mango leaves hung across the top of a section. */
-export function Toran({ count = 13, className = '' }) {
-  const width = 1000
-  const step = width / (count - 1)
-  const sag = 26
-  const y = (x) => 10 + sag * Math.sin((Math.PI * x) / width)
-
-  return (
-    <svg
-      className={`toran ${className}`.trim()}
-      viewBox={`0 0 ${width} 70`}
-      preserveAspectRatio="xMidYMin slice"
-      aria-hidden="true"
-    >
-      <path d={`M0 10 Q ${width / 2} ${10 + sag * 2} ${width} 10`} fill="none" stroke="#7c6a3a" strokeWidth="1.2" />
-      {Array.from({ length: count }, (_, i) => {
-        const x = i * step
-        const cy = y(x) + 6
-        const isLeaf = i % 2 === 1
-        return isLeaf ? (
-          <g key={i} transform={`translate(${x} ${cy})`}>
-            <g className="toran__drop" style={{ '--i': i }}>
-              <path className="toran__leaf" d="M0 0 C 7 10, 6 24, 0 32 C -6 24, -7 10, 0 0 Z" />
-              <path d="M0 2 L0 29" stroke="#3f5a26" strokeWidth="0.8" opacity="0.6" />
-            </g>
-          </g>
-        ) : (
-          <g key={i} transform={`translate(${x} ${cy + 6})`}>
-            <g className="toran__drop" style={{ '--i': i }}>
-              <circle r="9" className="toran__petals" />
-              <circle r="6" className="toran__petals toran__petals--inner" />
-              <circle r="2.4" fill="#b3541e" />
-            </g>
-          </g>
-        )
-      })}
-    </svg>
-  )
-}
 
 /** A thin rule with a small lotus at its centre. */
 export function Divider({ className = '' }) {

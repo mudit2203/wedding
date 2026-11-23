@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom'
 import Countdown from '../components/Countdown.jsx'
 import InlineVideo from '../components/InlineVideo.jsx'
-import Monogram from '../components/Monogram.jsx'
-import { Divider, Toran } from '../components/Ornaments.jsx'
+import Garland from '../components/Garland.jsx'
+import Hero from '../components/Hero.jsx'
+import { Divider } from '../components/Ornaments.jsx'
 import Reveal from '../components/Reveal.jsx'
-import { Birds, Rickshaw, Unroll } from '../components/Scenery.jsx'
+import { Rickshaw, Unroll } from '../components/Scenery.jsx'
 import { wedding } from '../data/wedding.js'
 import './Home.css'
 
@@ -39,33 +40,6 @@ const explore = [
     image: '/images/venue/palace-front-640.webp',
   },
 ]
-
-function Hero() {
-  return (
-    <section className="hero" aria-labelledby="hero-names">
-      <div className="hero__art">
-        <img
-          src="/images/theme/jaipur-palace-1400.webp"
-          srcSet="/images/theme/jaipur-palace-720.webp 720w, /images/theme/jaipur-palace-1400.webp 1400w"
-          sizes="(min-width: 48rem) 46rem, 100vw"
-          alt="A watercolour of a Jaipur palace at sunrise with camels, palms and bougainvillea"
-          fetchPriority="high"
-        />
-      </div>
-      <Birds />
-      <div className="hero__text">
-        <p className="hero__invocation hindi">{wedding.invocation.hindi}</p>
-        <Monogram className="hero__monogram" />
-        <h1 id="hero-names" className="hero__names script">
-          {wedding.bride} <span>&amp;</span> {wedding.groom}
-        </h1>
-        <p className="hero__date eyebrow">
-          {wedding.dateShort} · {wedding.venue.name} · {wedding.city}
-        </p>
-      </div>
-    </section>
-  )
-}
 
 function Invitation() {
   const { invocation, invitation, families } = wedding
@@ -159,7 +133,7 @@ function Families() {
 function Explore() {
   return (
     <section className="explore section">
-      <Toran className="explore__toran" />
+      <Garland />
       <div className="container">
         <Reveal as="header" className="explore__header">
           <p className="hindi">आइए, जानिए</p>
