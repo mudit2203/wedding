@@ -3,7 +3,7 @@ import PageHeader from '../components/PageHeader.jsx'
 
 export default function NotFound() {
   return (
-    <PageHeader gate="peacock" hindi="रास्ता भटक गए?" title="This page wandered off" intro="Let’s get you back to the celebrations.">
+    <PageHeader hindi="रास्ता भटक गए?" title="This page wandered off" intro="Let’s get you back to the celebrations.">
       <p className="page-header__action">
         <Link to="/" viewTransition className="button">
           Back home

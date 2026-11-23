@@ -20,14 +20,6 @@
   --gulabi: #d9828f;
   --crimson: #9f2b3e;
 
-  /* Gateway colours, from the painted gates of Jaipur's City Palace */
-  --peacock: #14514d;
-  --peacock-deep: #0b3532;
-  --rani: #b8305f;
-  --rose-wall: #a8385f;
-  --rose-wall-deep: #7d2444;
-  --jaali: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28'%3E%3Cpath d='M14 0 L28 14 L14 28 L0 14 Z' fill='none' stroke='%23e7c27a' stroke-opacity='.22'/%3E%3Ccircle cx='14' cy='14' r='1.8' fill='%23f1d3d3' fill-opacity='.35'/%3E%3C/svg%3E");
-
   --text: #2b2c22;
   --text-soft: #5b5c48;
   --line: rgb(86 94 30 / 0.18);

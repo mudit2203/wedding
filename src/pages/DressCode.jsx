@@ -70,7 +70,6 @@ export default function DressCode() {
   return (
     <>
       <PageHeader
-        gate="leheriya"
         hindi="पहनावा"
         title="What to Wear"
         intro="A little guide to help you dress for each celebration. Colours are suggestions, not rules. Come as you are, and come comfortable."

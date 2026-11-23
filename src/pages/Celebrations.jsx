@@ -75,7 +75,6 @@ export default function Celebrations() {
   return (
     <>
       <PageHeader
-        gate="peacock"
         hindi="उत्सव"
         title="The Celebrations"
         intro="Four days of rituals, music and colour, from the first mehendi to the seven pheras."

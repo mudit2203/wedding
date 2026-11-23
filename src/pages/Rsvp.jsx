@@ -96,7 +96,6 @@ export default function Rsvp() {
   return (
     <>
       <PageHeader
-        gate="emerald"
         hindi="पधारो म्हारे देस"
         title="Will you join us?"
         intro={`Please let us know by ${wedding.rsvpBy}, so we can plan your stay and the celebrations.`}

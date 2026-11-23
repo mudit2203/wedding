@@ -1,144 +1,31 @@
-/*
- * A painted gateway: a coloured wall with a jaali pattern, and a doorway
- * with a cusped arch, a rani pink band of gold dots and a gold edge.
- * Each page sets its own wall colour.
- */
 .page-header {
-  --wall: #14514d;
-  --wall-deep: #0b3532;
-  --band: #b8305f;
-  --dot: #f3dca6;
-  --edge: #e7c27a;
   position: relative;
-  padding: clamp(9rem, 7rem + 6vw, 12rem) clamp(1.25rem, 6vw, 5rem) 0;
+  padding-bottom: var(--space-9);
   text-align: center;
-  background: var(--jaali), linear-gradient(180deg, var(--wall), var(--wall-deep));
+  background: linear-gradient(180deg, var(--ivory) 0%, var(--sage-light) 100%);
   overflow: hidden;
 }
 
-.page-header--rose {
-  --wall: #a8385f;
-  --wall-deep: #7d2444;
-  --band: #14514d;
-}
-
-.page-header--lotus {
-  --wall: #c25a7c;
-  --wall-deep: #9f3b5e;
-  --band: #3f5a26;
-}
-
-.page-header--leheriya {
-  --wall: #4d6b2a;
-  --wall-deep: #33491a;
-  --band: #d9828f;
-  --dot: #fff3c4;
-}
-
-.page-header--sandstone {
-  --wall: #c9786d;
-  --wall-deep: #a65a50;
-  --band: #14514d;
-}
-
-.page-header--indigo {
-  --wall: #2f3f78;
-  --wall-deep: #1e2a55;
-  --band: #c8306e;
-}
-
-.page-header--emerald {
-  --wall: #1d5c3a;
-  --wall-deep: #123e27;
-  --band: #9f2b3e;
-}
-
-/* The doorway: an arched cap, then a body with pink banded jambs. */
-.page-header__door {
-  position: relative;
-  width: min(100%, 52rem);
-  margin-inline: auto;
-}
-
-.page-header__cap {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 3 / 1;
-  overflow: visible;
-}
-
-.page-header__sky {
-  fill: #fdebdd;
-}
-
-.page-header__band {
-  fill: none;
-  stroke: var(--band);
-  stroke-width: 18px;
-  vector-effect: non-scaling-stroke;
-}
-
-.page-header__dots {
-  fill: none;
-  stroke: var(--dot);
-  stroke-width: 5px;
-  stroke-linecap: round;
-  stroke-dasharray: 0 13;
-  vector-effect: non-scaling-stroke;
-}
-
-.page-header__edge {
-  fill: none;
-  stroke: var(--edge);
-  stroke-width: 3px;
-  vector-effect: non-scaling-stroke;
-}
-
-.page-header__body {
-  position: relative;
-  /* Keeps the title's negative margin from pulling the body up over the cap. */
-  display: flow-root;
-  padding-bottom: var(--space-8);
-  background: linear-gradient(180deg, #fdebdd 0%, var(--ivory) 40%, var(--sage-light) 100%);
-}
-
-.page-header__body::before,
-.page-header__body::after {
+/* The Hawa Mahal skyline in Jaipur pink, fading out below its domes. */
+.page-header::after {
   content: '';
   position: absolute;
-  top: 0;
-  bottom: 0;
-  z-index: 1;
-  width: 18px;
-  background:
-    radial-gradient(circle, var(--dot) 0 2.4px, transparent 3px) center 6px / 18px 13px repeat-y,
-    var(--band);
-}
-
-.page-header__body::before {
-  left: -9px;
-  box-shadow: inset -3px 0 0 var(--edge);
-}
-
-.page-header__body::after {
-  right: -9px;
-  box-shadow: inset 3px 0 0 var(--edge);
-}
-
-.page-header__body > .birds {
-  inset: 0 0 60%;
-  overflow: visible;
+  inset: auto 0 0;
+  height: 42%;
+  background: linear-gradient(180deg, var(--gulabi) 0%, transparent 70%);
+  opacity: 0.28;
+  mask: url('/images/guide/hawa-mahal.webp') center bottom / auto 100% no-repeat;
+  -webkit-mask: url('/images/guide/hawa-mahal.webp') center bottom / auto 100% no-repeat;
+  pointer-events: none;
 }
 
 .page-header__inner {
   position: relative;
-  z-index: 2;
+  z-index: 1;
   display: grid;
   gap: var(--space-3);
-  max-width: var(--measure);
-  margin: clamp(-9rem, -14vw, -3rem) auto 0;
-  padding: 0 var(--space-5);
+  /* Room for the short strands of marigolds in the middle. */
+  padding-top: clamp(6.5rem, 4rem + 5vw, 8.5rem);
 }
 
 .page-header__hindi {
