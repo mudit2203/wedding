@@ -56,6 +56,7 @@ export default function Venue() {
   return (
     <>
       <PageHeader
+        art="lotus"
         hindi="विवाह स्थल"
         title="Venue & Travel"
         intro={`${venue.name}, ${venue.city}. Our home for the celebrations on ${venue.dates}.`}

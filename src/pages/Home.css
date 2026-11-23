@@ -1,4 +1,8 @@
 /* Invitation */
+.invitation__ganesh {
+  width: clamp(7rem, 5rem + 6vw, 10rem);
+}
+
 .invitation__inner {
   display: grid;
   justify-items: center;
@@ -95,6 +99,25 @@
   color: var(--gold-soft);
 }
 
+.countdown-band {
+  position: relative;
+}
+
+/* The Jaipur skyline the rickshaw rides past */
+.countdown-band__skyline {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: min(100%, 60rem);
+  translate: -50% 0;
+  opacity: 0.35;
+}
+
+.countdown-band__inner {
+  position: relative;
+  z-index: 1;
+}
+
 .countdown-band__road {
   margin-top: var(--space-6);
   border-bottom-color: rgb(230 232 210 / 0.25);
@@ -118,7 +141,33 @@
 
 /* Families */
 .families {
+  position: relative;
+  overflow: hidden;
   background: var(--paper);
+}
+
+.families__stem {
+  position: absolute;
+  bottom: 0;
+  width: clamp(3rem, 1rem + 5vw, 6rem);
+  opacity: 0.7;
+}
+
+.families__stem--left {
+  left: clamp(0.25rem, 2vw, 2rem);
+  rotate: -6deg;
+}
+
+.families__stem--right {
+  right: clamp(0.25rem, 2vw, 2rem);
+  transform: scaleX(-1);
+  rotate: 6deg;
+}
+
+@media (max-width: 40rem) {
+  .families__stem {
+    opacity: 0.4;
+  }
 }
 
 .families__inner {
@@ -158,8 +207,33 @@
 }
 
 .explore__header {
+  position: relative;
   margin-bottom: var(--space-7);
   text-align: center;
+}
+
+/* A matka on either side of the heading */
+.explore__matka {
+  position: absolute;
+  top: 50%;
+  width: clamp(3.5rem, 2rem + 4vw, 5.5rem);
+  translate: 0 -50%;
+  opacity: 0.8;
+}
+
+.explore__matka--left {
+  left: 0;
+}
+
+.explore__matka--right {
+  right: 0;
+  transform: scaleX(-1);
+}
+
+@media (max-width: 48rem) {
+  .explore__matka {
+    display: none;
+  }
 }
 
 .explore__header .hindi {

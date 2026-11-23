@@ -3,6 +3,7 @@ import Countdown from '../components/Countdown.jsx'
 import InlineVideo from '../components/InlineVideo.jsx'
 import Garland from '../components/Garland.jsx'
 import Hero from '../components/Hero.jsx'
+import LineArt from '../components/LineArt.jsx'
 import { Divider } from '../components/Ornaments.jsx'
 import Reveal from '../components/Reveal.jsx'
 import { Rickshaw, Unroll } from '../components/Scenery.jsx'
@@ -46,6 +47,9 @@ function Invitation() {
   return (
     <section className="invitation section">
       <div className="narrow invitation__inner">
+        <Reveal className="invitation__ganesh">
+          <LineArt name="ganesh" />
+        </Reveal>
         <Reveal className="invitation__deity">
           <img src="/images/blessing/govind-dev-ji.webp" alt="Shri Govind Dev Ji" loading="lazy" width="495" height="619" />
         </Reveal>
@@ -102,6 +106,7 @@ function CountdownBand() {
           Will you join us? RSVP
         </Link>
       </div>
+      <LineArt name="jaipur" className="countdown-band__skyline" />
       <Rickshaw tone="light" className="countdown-band__road" />
     </section>
   )
@@ -110,6 +115,8 @@ function CountdownBand() {
 function Families() {
   return (
     <section className="families section">
+      <LineArt name="rajnigandha" className="families__stem families__stem--left" />
+      <LineArt name="rajnigandha" className="families__stem families__stem--right" />
       <div className="container families__inner">
         <Reveal className="families__text">
           <p className="hindi families__hindi">दो परिवार, एक उत्सव</p>
@@ -136,6 +143,8 @@ function Explore() {
       <Garland />
       <div className="container">
         <Reveal as="header" className="explore__header">
+          <LineArt name="matka" className="explore__matka explore__matka--left" />
+          <LineArt name="matka" className="explore__matka explore__matka--right" />
           <p className="hindi">आइए, जानिए</p>
           <h2>Everything you need to know</h2>
         </Reveal>

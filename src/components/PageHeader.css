@@ -19,6 +19,33 @@
   pointer-events: none;
 }
 
+.page-header__art {
+  position: absolute;
+  bottom: var(--space-5);
+  width: clamp(4rem, 2rem + 7vw, 8.5rem);
+  opacity: 0.75;
+}
+
+.page-header__art--left {
+  left: clamp(0.5rem, 4vw, 4rem);
+}
+
+.page-header__art--right {
+  right: clamp(0.5rem, 4vw, 4rem);
+  transform: scaleX(-1);
+}
+
+.page-header__art--rajnigandha {
+  width: clamp(3rem, 1.5rem + 5vw, 6rem);
+}
+
+@media (max-width: 40rem) {
+  .page-header__art {
+    bottom: var(--space-3);
+    opacity: 0.5;
+  }
+}
+
 .page-header__inner {
   position: relative;
   z-index: 1;

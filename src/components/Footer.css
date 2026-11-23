@@ -68,3 +68,9 @@
   color: inherit;
   text-underline-offset: 3px;
 }
+
+.footer__lotus {
+  width: clamp(6rem, 4rem + 5vw, 9rem);
+  margin-inline: auto;
+  opacity: 0.8;
+}

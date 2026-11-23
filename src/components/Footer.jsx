@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { instagram, navLinks, wedding } from '../data/wedding.js'
+import LineArt from './LineArt.jsx'
 import Monogram from './Monogram.jsx'
 import './Footer.css'
 
@@ -7,6 +8,7 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer__inner container">
+        <LineArt name="lotus" className="footer__lotus" />
         <div className="footer__seal">
           <Monogram className="footer__monogram" />
         </div>

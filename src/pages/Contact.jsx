@@ -9,6 +9,7 @@ export default function Contact() {
   return (
     <>
       <PageHeader
+        art="matka"
         hindi="संपर्क करें"
         title="Contact"
         intro="For travel, stay or anything at all, call or message the family. Someone will always pick up."
