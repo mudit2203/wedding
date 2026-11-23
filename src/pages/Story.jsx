@@ -52,7 +52,7 @@ function Chapter({ chapter, index }) {
 export default function Story() {
   return (
     <>
-      <PageHeader hindi="हमारी कहानी" title="Our Story" intro="The same school, years apart, and one Diwali that changed everything.">
+      <PageHeader gate="rose" hindi="हमारी कहानी" title="Our Story" intro="The same school, years apart, and one Diwali that changed everything.">
         <PolaroidStack />
       </PageHeader>
 

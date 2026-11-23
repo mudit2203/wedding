@@ -78,8 +78,9 @@
 .countdown-band {
   padding-top: var(--space-8);
   background:
-    radial-gradient(80% 120% at 50% 0%, rgb(217 130 143 / 0.16), transparent 60%),
-    var(--olive-deep);
+    radial-gradient(80% 120% at 50% 0%, rgb(217 130 143 / 0.22), transparent 60%),
+    var(--jaali),
+    linear-gradient(180deg, var(--peacock), var(--peacock-deep));
   color: var(--ivory);
 }
 
@@ -154,7 +155,18 @@
 .explore {
   position: relative;
   padding-top: clamp(9rem, 14vw, 13rem);
-  background: var(--sage-light);
+  overflow: hidden;
+  background: var(--jaali), linear-gradient(180deg, var(--rose-wall), var(--rose-wall-deep));
+  color: var(--ivory);
+}
+
+.explore h2,
+.explore h3 {
+  color: var(--ivory);
+}
+
+.explore .muted {
+  color: var(--blush);
 }
 
 .explore__header {
@@ -163,7 +175,7 @@
 }
 
 .explore__header .hindi {
-  color: var(--gold);
+  color: var(--gold-soft);
   font-size: var(--step-1);
 }
 
@@ -212,7 +224,7 @@
 }
 
 .explore__hindi {
-  color: var(--gold);
+  color: var(--gold-soft);
 }
 
 .explore__card h3 {

@@ -62,6 +62,7 @@ export default function Moments() {
   return (
     <>
       <PageHeader
+        gate="indigo"
         hindi="यादें"
         title="Moments"
         intro="A few of our favourite frames so far. After the wedding, this is where all of your photos will live too."

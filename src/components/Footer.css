@@ -1,6 +1,6 @@
 .footer {
   padding-block: var(--space-8) var(--space-7);
-  background: var(--olive-deep);
+  background: var(--jaali), var(--peacock-deep);
   color: var(--sage-light);
   text-align: center;
 }

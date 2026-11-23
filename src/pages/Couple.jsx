@@ -68,7 +68,8 @@ function QuizCard({ question, answer }) {
 export default function Couple() {
   return (
     <>
-      <PageHeader hindi="वर-वधू" title="The Bride & Groom" intro="A little about the two of us, and a few things even our friends might not know." />
+      <PageHeader
+        gate="lotus" hindi="वर-वधू" title="The Bride & Groom" intro="A little about the two of us, and a few things even our friends might not know." />
 
       <section className="section couple">
         <div className="container couple__profiles">
