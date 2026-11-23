@@ -1,0 +1,59 @@
+/*
+ * Design tokens. Every colour, font and spacing value the site uses lives here,
+ * so the whole look can be tuned from one file.
+ */
+:root {
+  /* Palette: green leads, ivory carries the page, pink and crimson are accents. */
+  --ivory: #fbf8ec;
+  --ivory-deep: #f3eedb;
+  --paper: #fffdf6;
+  --olive: #565e1e;
+  --olive-deep: #3f4516;
+  --olive-ink: #2b2e1c;
+  --sage: #c6c9a3;
+  --sage-light: #e6e8d2;
+  --sage-mid: #94986b;
+  --sandstone: #e9c9a0;
+  --gold: #b8913f;
+  --gold-soft: #d9bd7e;
+  --blush: #f1d3d3;
+  --gulabi: #d9828f;
+  --crimson: #9f2b3e;
+
+  --text: #2b2c22;
+  --text-soft: #5b5c48;
+  --line: rgb(86 94 30 / 0.18);
+
+  /* Type */
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-script: 'Great Vibes', 'Brush Script MT', cursive;
+  --font-sans: 'Jost', system-ui, sans-serif;
+  --font-hindi: 'Tiro Devanagari Hindi', 'Noto Serif Devanagari', serif;
+
+  --step--1: clamp(0.8rem, 0.78rem + 0.1vw, 0.86rem);
+  --step-0: clamp(1.05rem, 1rem + 0.25vw, 1.2rem);
+  --step-1: clamp(1.3rem, 1.2rem + 0.5vw, 1.6rem);
+  --step-2: clamp(1.7rem, 1.45rem + 1.1vw, 2.4rem);
+  --step-3: clamp(2.2rem, 1.8rem + 2vw, 3.4rem);
+  --step-4: clamp(3rem, 2.2rem + 4vw, 5.6rem);
+
+  /* Space (a 4px-based scale) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+  --space-9: clamp(4.5rem, 3rem + 6vw, 8rem);
+
+  --gutter: clamp(1rem, 0.5rem + 3vw, 3rem);
+  --measure: 38rem;
+  --wide: 72rem;
+
+  --radius: 4px;
+  --shadow-soft: 0 1px 2px rgb(43 46 28 / 0.06), 0 12px 32px -12px rgb(43 46 28 / 0.18);
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --nav-h: 4.25rem;
+}

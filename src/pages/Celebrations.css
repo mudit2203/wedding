@@ -1,0 +1,240 @@
+.celebrations {
+  display: grid;
+  gap: var(--space-9);
+  padding-block: var(--space-9);
+}
+
+.day {
+  scroll-margin-top: calc(var(--nav-h) + var(--space-5));
+}
+
+.day__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--line);
+}
+
+.day__number {
+  font-size: var(--step-4);
+  line-height: 1;
+  color: var(--sage);
+}
+
+.day__hindi {
+  color: var(--gold);
+}
+
+.day__title {
+  font-size: var(--step-2);
+  font-weight: 400;
+}
+
+.day__events {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 30rem), 1fr));
+  gap: var(--space-6);
+}
+
+/* Postcard */
+.postcard {
+  display: grid;
+  grid-template-columns: 38% 1fr;
+  min-height: 22rem;
+  scroll-margin-top: calc(var(--nav-h) + var(--space-5));
+  background: var(--paper);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-soft);
+}
+
+.postcard__scene {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--sky-top), var(--sky-bottom));
+}
+
+.postcard__sun {
+  position: absolute;
+  top: 18%;
+  right: 22%;
+  width: 2.6rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: rgb(255 248 225 / 0.85);
+  box-shadow: 0 0 40px 10px rgb(255 240 200 / 0.4);
+}
+
+.postcard--night .postcard__sun {
+  width: 1.8rem;
+  background: #f6efd9;
+  box-shadow: 0 0 24px 4px rgb(246 239 217 / 0.25), -6px -3px 0 0 transparent;
+}
+
+/* Little stars at night */
+.postcard--night .postcard__scene::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 50%;
+  background-image:
+    radial-gradient(1px 1px at 20% 30%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 60% 15%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 80% 45%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 35% 60%, #fff 50%, transparent 51%),
+    radial-gradient(1px 1px at 12% 75%, #fff 50%, transparent 51%);
+  opacity: 0.7;
+}
+
+.postcard__skyline {
+  position: absolute;
+  inset: auto -20% 0;
+  height: 55%;
+  background: rgb(255 253 246 / 0.55);
+  mask: url('/images/guide/hawa-mahal.webp') center bottom / auto 100% no-repeat;
+  -webkit-mask: url('/images/guide/hawa-mahal.webp') center bottom / auto 100% no-repeat;
+}
+
+.postcard--night .postcard__skyline {
+  background: rgb(10 10 20 / 0.45);
+}
+
+.postcard__hindi {
+  position: absolute;
+  left: var(--space-4);
+  bottom: var(--space-4);
+  font-size: var(--step-2);
+  line-height: 1.2;
+  color: var(--olive-ink);
+}
+
+.postcard--night .postcard__hindi {
+  color: var(--ivory);
+}
+
+.postcard__body {
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: var(--space-3);
+  padding: var(--space-6) var(--space-6) var(--space-5);
+}
+
+.postcard__stamp {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  display: grid;
+  place-items: center;
+  width: 3.2rem;
+  height: 3.8rem;
+  padding: 6px;
+  background: var(--ivory);
+  color: var(--crimson);
+  outline: 2px dotted var(--sage);
+  outline-offset: -3px;
+}
+
+.postcard__postmark {
+  position: absolute;
+  top: var(--space-6);
+  right: calc(var(--space-4) + 2.4rem);
+  display: grid;
+  place-content: center;
+  width: 3.6rem;
+  aspect-ratio: 1;
+  border: 1px solid rgb(159 43 62 / 0.45);
+  border-radius: 50%;
+  font-family: var(--font-sans);
+  font-size: 0.5rem;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  text-align: center;
+  text-transform: uppercase;
+  color: rgb(159 43 62 / 0.6);
+  rotate: -14deg;
+}
+
+.postcard__side {
+  font-size: 0.66rem;
+  color: var(--gold);
+}
+
+.postcard__name {
+  max-width: calc(100% - 5rem);
+  font-size: var(--step-2);
+  font-weight: 500;
+}
+
+.postcard__about {
+  color: var(--text-soft);
+}
+
+.postcard__details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+  margin: var(--space-2) 0 0;
+  padding-top: var(--space-4);
+  border-top: 1px dashed var(--line);
+}
+
+.postcard__details dt {
+  font-size: 0.62rem;
+  color: var(--sage-mid);
+}
+
+.postcard__details dd {
+  margin: 0;
+  line-height: 1.35;
+  color: var(--olive-deep);
+}
+
+.postcard__map {
+  display: block;
+  margin-top: var(--space-1);
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: var(--crimson);
+  text-underline-offset: 3px;
+}
+
+.postcard__map--soon {
+  color: var(--sage-mid);
+}
+
+.postcard__dress {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  justify-self: start;
+  margin-top: var(--space-2);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  color: var(--olive);
+  text-underline-offset: 4px;
+}
+
+.postcard__swatches {
+  display: flex;
+}
+
+.postcard__swatches i {
+  width: 0.9rem;
+  height: 0.9rem;
+  margin-left: -4px;
+  border: 2px solid var(--paper);
+  border-radius: 50%;
+}
+
+@media (max-width: 36rem) {
+  .postcard {
+    grid-template-columns: 1fr;
+  }
+
+  .postcard__scene {
+    min-height: 9rem;
+  }
+}

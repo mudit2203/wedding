@@ -1,0 +1,175 @@
+/* Polaroid stack */
+.stack {
+  position: relative;
+  width: min(15rem, 62vw);
+  aspect-ratio: 4 / 5.4;
+  margin: var(--space-6) auto 0;
+}
+
+.stack__card {
+  position: absolute;
+  inset: 0;
+  transform: rotate(calc((var(--i) - 1.5) * 4deg)) translateY(calc(var(--i) * 3px));
+  transition: transform 0.9s var(--ease);
+}
+
+.stack__card:first-child {
+  transform: rotate(-2deg);
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  display: grid;
+  gap: var(--space-9);
+  margin-block: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: linear-gradient(var(--sage), var(--gold-soft), var(--sage));
+}
+
+.chapter {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: var(--space-9);
+}
+
+.chapter__dot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0.8rem;
+  height: 0.8rem;
+  translate: -50% -50%;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  background: var(--ivory);
+  transition: background 0.8s var(--ease);
+}
+
+.chapter.is-in .chapter__dot {
+  background: var(--crimson);
+}
+
+.chapter__text {
+  display: grid;
+  gap: var(--space-3);
+  text-align: right;
+  opacity: 0;
+  transform: translateX(-16px);
+  transition:
+    opacity 1s var(--ease),
+    transform 1s var(--ease);
+}
+
+.chapter__when {
+  color: var(--gold);
+}
+
+.chapter__title {
+  font-size: var(--step-2);
+  font-weight: 400;
+}
+
+/* Photos start as a pale sketch and colour in as you reach them. */
+.chapter__photo {
+  width: min(100%, 22rem);
+  filter: grayscale(1) sepia(0.25) contrast(0.85) brightness(1.08);
+  opacity: 0.6;
+  transition:
+    filter 1.6s var(--ease) 0.2s,
+    opacity 1.2s var(--ease);
+}
+
+.chapter.is-in .chapter__text {
+  opacity: 1;
+  transform: none;
+}
+
+.chapter.is-in .chapter__photo {
+  filter: none;
+  opacity: 1;
+}
+
+.chapter--right .chapter__text {
+  order: 2;
+  text-align: left;
+  transform: translateX(16px);
+}
+
+.chapter--right.is-in .chapter__text {
+  transform: none;
+}
+
+.chapter--right .chapter__photo {
+  justify-self: end;
+}
+
+.chapter:not(:has(.chapter__photo)) .chapter__text {
+  grid-column: 1 / -1;
+  max-width: var(--measure);
+  justify-self: center;
+  padding: var(--space-6);
+  background: var(--ivory);
+  text-align: center;
+  position: relative;
+}
+
+.story__end {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-5);
+  margin-top: var(--space-9);
+  text-align: center;
+}
+
+.story__end-line {
+  font-size: var(--step-3);
+  color: var(--crimson);
+}
+
+@media (max-width: 52rem) {
+  .timeline::before {
+    left: 0.4rem;
+  }
+
+  .chapter {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+    padding-left: var(--space-6);
+  }
+
+  .chapter__dot {
+    left: 0.4rem;
+    top: 0.6rem;
+  }
+
+  .chapter__text,
+  .chapter--right .chapter__text {
+    order: 0;
+    text-align: left;
+    transform: translateY(12px);
+  }
+
+  .chapter--right .chapter__photo {
+    justify-self: start;
+  }
+
+  .chapter:not(:has(.chapter__photo)) .chapter__text {
+    padding: 0;
+    text-align: left;
+    background: none;
+    justify-self: start;
+  }
+}
