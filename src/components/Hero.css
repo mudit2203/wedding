@@ -1,345 +1,256 @@
 /*
- * Diwali night at the haveli. --p (0 to 1, set from Hero.jsx) is how far the
- * hero has scrolled away, and drives a gentle parallax as you leave it.
+ * The hero is taller than the screen. Its view sticks in place while you
+ * scroll through it, and --p (0 to 1, set from Hero.jsx) drives the walk
+ * through the gate.
  */
 .hero {
   --p: 0;
+  --view: calc(100svh - var(--nav-h));
   position: relative;
-  height: calc(100svh - var(--nav-h));
-  min-height: 34rem;
+  height: calc(var(--view) * 2.2);
+  background: #0b3532;
+}
+
+.hero__view {
+  position: sticky;
+  top: var(--nav-h);
+  height: var(--view);
   overflow: hidden;
-  background:
-    radial-gradient(70% 45% at 50% 100%, rgb(255 176 92 / 0.28), transparent 70%),
-    radial-gradient(40% 30% at 50% 35%, rgb(200 48 110 / 0.14), transparent 70%),
-    radial-gradient(30% 50% at 0% 30%, rgb(232 137 42 / 0.1), transparent 70%),
-    radial-gradient(30% 50% at 100% 30%, rgb(232 137 42 / 0.1), transparent 70%),
-    linear-gradient(180deg, #0b1830 0%, #10283a 45%, #123832 100%);
 }
 
-.hero__night {
+/* The painting, seen through the arch */
+.hero__painting {
   position: absolute;
-  inset: 3.5rem 0 0;
-  transform-origin: 50% 100%;
-  scale: calc(1 + var(--p) * 0.08);
-  opacity: calc(1 - var(--p) * 0.7);
+  inset: 0;
+  background: linear-gradient(180deg, #f5d9d5, #fdebdd 50%, #fcedda);
 }
 
-.night {
+.hero__back,
+.hero__front {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 42%;
+}
+
+.hero__back {
+  scale: calc(1.22 - var(--p) * 0.22);
+}
+
+/* The garden is closer to us, so it moves more. */
+.hero__front {
+  transform-origin: 50% 100%;
+  scale: calc(1.5 - var(--p) * 0.5);
+}
+
+.hero__birds {
+  inset: 6% 0 55%;
+}
+
+.hero__road {
+  position: absolute;
+  inset: 58% 0 auto;
+  height: 10%;
+  border: 0;
+  color: #5e4219;
+}
+
+.hero__road .rickshaw {
+  width: clamp(5rem, 9vw, 8rem);
+  animation-duration: 30s;
+}
+
+/* The gate grows past us as we walk through it. */
+.hero__gate {
+  position: absolute;
+  inset: 0;
+  transform-origin: 50% 70%;
+  scale: calc(1 + var(--p) * var(--p) * 2.6);
+  opacity: calc(1.6 - var(--p) * 1.6);
+}
+
+.hero__gate svg {
   width: 100%;
   height: 100%;
 }
 
-.hero__tall {
+.hero__gate-tall {
   display: none;
 }
 
 @media (max-aspect-ratio: 4 / 5) {
-  .hero__wide {
+  .hero__gate-wide {
     display: none;
   }
 
-  .hero__tall {
+  /* On a tall screen the arch sits low, so the painting starts lower too. */
+  .hero__painting {
+    translate: 0 calc((1 - var(--p)) * 16%);
+  }
+
+  .hero__gate-tall {
     display: block;
   }
 }
 
-/* The haveli itself: fine gold lines, glowing jharokhas */
-.night__line {
+.gate__writing {
+  opacity: calc(1 - var(--p) * 2.4);
+}
+
+.gate__panel {
+  fill: #0e403c;
+  stroke: #c9a15a;
+  stroke-width: 2;
+}
+
+.gate__gold-line {
   fill: none;
   stroke: #d9bd7e;
-  stroke-width: 1.4;
-  opacity: 0.55;
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
 }
 
-.night__window {
-  stroke: #d9bd7e;
-  stroke-width: 1.2;
-  stroke-opacity: 0.7;
-  animation: window-glow 5s ease-in-out calc(1.5s + var(--i) * 0.7s) infinite alternate both;
+.gate__gold-fill {
+  fill: #d9bd7e;
 }
 
-@keyframes window-glow {
-  from {
-    opacity: 0.55;
-  }
-
-  to {
-    opacity: 1;
-  }
+.gate__pink-fill {
+  fill: #b8305f;
 }
 
-/* Fairy lights: a soft glow, then two sets of bulbs that twinkle in turn */
-.night__reveal {
-  fill: none;
-  stroke: #fff;
-  stroke-width: 40;
-  stroke-dasharray: 1 1;
-  stroke-dashoffset: 1;
-  animation: lights-on 2.6s cubic-bezier(0.45, 0, 0.3, 1) var(--delay) forwards;
-}
-
-@keyframes lights-on {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-.night__glow {
-  fill: none;
-  stroke: #ffc56b;
-  stroke-width: 9;
-  stroke-linecap: round;
-  opacity: 0.16;
-}
-
-.night__bulbs {
-  fill: none;
-  stroke: #ffe3a3;
-  stroke-width: 4;
-  stroke-linecap: round;
-  stroke-dasharray: 0 22;
-  animation: twinkle 3.2s ease-in-out infinite alternate;
-}
-
-.night__bulbs--alt {
-  stroke: #ffc56b;
-  stroke-dashoffset: 11;
-  animation-delay: -1.6s;
-}
-
-@keyframes twinkle {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0.45;
-  }
-}
-
-/* Writing in the doorway */
-.night__writing > * {
-  animation: night-in 1.8s var(--ease) both;
-}
-
-.night__writing > :nth-child(2) {
-  animation-delay: 0.3s;
-}
-
-.night__name--bride {
-  animation-delay: 0.7s;
-}
-
-.night__name--amp {
-  animation-delay: 0.95s;
-}
-
-.night__name--groom {
-  animation-delay: 1.2s;
-}
-
-.night__date,
-.night__place {
-  animation-delay: 1.6s;
-}
-
-@keyframes night-in {
-  from {
-    opacity: 0;
-    translate: 0 14px;
-  }
-}
-
-.night__invocation {
-  fill: #f1d3d3;
-  text-anchor: middle;
-}
-
-.night__name {
-  text-anchor: middle;
-}
-
-.night__date,
-.night__place {
-  font-family: var(--font-sans);
-  letter-spacing: 0.32em;
-  text-anchor: middle;
-}
-
-.night__date {
-  fill: #f3dca6;
-}
-
-.night__place {
+.gate__petal {
   fill: #f1d3d3;
   opacity: 0.85;
 }
 
-/* Diyas on the steps */
-.night__diya-halo {
-  fill: #ffb45c;
-  opacity: 0.18;
+.gate__band {
+  fill: none;
+  stroke: #b8305f;
+  stroke-width: 22;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
 }
 
-.night__bowl {
-  fill: #b8873a;
+.gate__dots {
+  fill: none;
   stroke: #f3dca6;
-  stroke-width: 0.8;
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-dasharray: 0 13;
+  vector-effect: non-scaling-stroke;
 }
 
-.night__flame {
+.gate__edge {
+  fill: none;
+  stroke: #e7c27a;
+  stroke-width: 4;
+  vector-effect: non-scaling-stroke;
+}
+
+.gate__plinth {
+  fill: #d8b98a;
+}
+
+.gate__invocation {
+  fill: #f1d3d3;
+  text-anchor: middle;
+}
+
+.gate__monogram {
+  fill: #e7c27a;
+}
+
+.gate__name {
+  fill: #fbf8ec;
+  text-anchor: middle;
+}
+
+.gate__amp {
+  fill: #e7c27a;
+  text-anchor: middle;
+}
+
+.gate__date {
+  fill: #e7c27a;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  letter-spacing: 0.3em;
+  text-anchor: middle;
+}
+
+.gate__flame {
   fill: #ffcf6b;
   transform-box: fill-box;
   transform-origin: 50% 100%;
-  animation: diya-flicker 2.2s ease-in-out infinite;
+  animation: flicker 2.4s ease-in-out infinite;
 }
 
-.night__diya:nth-of-type(odd) .night__flame {
-  animation-duration: 2.7s;
-  animation-delay: -0.8s;
+/* Entrance: the names write themselves, the lamps light. */
+.gate__writing > * {
+  animation: gate-in 1.6s var(--ease) both;
 }
 
-@keyframes diya-flicker {
-  0%,
-  100% {
-    scale: 1;
-    rotate: 0deg;
+.gate__name {
+  animation-delay: 0.5s;
+}
+
+.gate__writing > :last-child,
+.gate__date {
+  animation-delay: 1.1s;
+}
+
+@keyframes gate-in {
+  from {
+    opacity: 0;
+    translate: 0 12px;
   }
+}
 
-  30% {
-    scale: 1.06 0.94;
-    rotate: -3deg;
+.hero__cue {
+  position: absolute;
+  bottom: var(--space-5);
+  left: 50%;
+  display: grid;
+  justify-items: center;
+  gap: var(--space-2);
+  translate: -50% 0;
+  color: #fbf8ec;
+  opacity: calc(1 - var(--p) * 4);
+}
+
+.hero__cue .eyebrow {
+  font-size: 0.62rem;
+  color: inherit;
+}
+
+.hero__cue::after {
+  content: '';
+  width: 1px;
+  height: 2.4rem;
+  background: linear-gradient(currentColor, transparent);
+  transform-origin: top;
+  animation: cue 2.2s var(--ease) infinite;
+}
+
+@keyframes cue {
+  from {
+    scale: 1 0;
   }
 
   60% {
-    scale: 0.95 1.06;
-    rotate: 2deg;
-  }
-}
-
-/* Paper kandeels */
-.hero__kandeels {
-  position: absolute;
-  inset: 0;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  pointer-events: none;
-  translate: 0 calc(var(--p) * -18vh);
-}
-
-.kandeel {
-  --paper: #c8306e;
-  --paper-deep: #8f1f4c;
-  position: absolute;
-  top: 0;
-  left: var(--x);
-  width: clamp(2.4rem, 1.6rem + 2.4vw, 3.8rem);
-  translate: -50% 0;
-  transform-origin: 50% 0;
-  animation:
-    kandeel-drop 1.8s cubic-bezier(0.3, 1.3, 0.5, 1) calc(0.6s + var(--i) * 0.15s) both,
-    kandeel-sway calc(4.2s + var(--i) * 0.4s) ease-in-out calc(2.4s + var(--i) * 0.15s) infinite alternate;
-}
-
-/* The string the lantern hangs from */
-.kandeel::before {
-  content: '';
-  display: block;
-  width: 1px;
-  height: var(--drop);
-  margin-inline: auto;
-  background: #c9a15a;
-}
-
-.kandeel--saffron {
-  --paper: #e8892a;
-  --paper-deep: #a8541a;
-}
-
-.kandeel--peacock {
-  --paper: #1f7a70;
-  --paper-deep: #0e4a44;
-}
-
-.kandeel__svg {
-  display: block;
-  width: 100%;
-  height: auto;
-  margin-top: -4px;
-  overflow: visible;
-}
-
-.kandeel__halo {
-  fill: #ffb45c;
-  fill-opacity: 0.2;
-  animation: twinkle 2.6s ease-in-out infinite alternate;
-}
-
-.kandeel__paper {
-  fill: var(--paper-deep);
-}
-
-.kandeel__light {
-  fill: var(--paper);
-}
-
-.kandeel__rib {
-  fill: none;
-  stroke: #f3dca6;
-  stroke-width: 0.8;
-  opacity: 0.8;
-}
-
-.kandeel__cap {
-  fill: #d9bd7e;
-}
-
-.kandeel__tassel {
-  fill: none;
-  stroke: #e7c27a;
-  stroke-width: 1.2;
-  stroke-linecap: round;
-}
-
-@keyframes kandeel-drop {
-  from {
-    translate: -50% -120%;
-  }
-}
-
-@keyframes kandeel-sway {
-  from {
-    rotate: -2.5deg;
+    scale: 1 1;
+    opacity: 1;
   }
 
   to {
-    rotate: 2.5deg;
-  }
-}
-
-@media (max-width: 40rem) {
-  .kandeel--wide-only {
-    display: none;
+    opacity: 0;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .night__reveal {
-    stroke-dashoffset: 0;
-    animation: none;
-  }
-
-  .night__sheen {
-    display: none;
-  }
-
-  .night__bulbs,
-  .night__window,
-  .night__flame,
-  .kandeel,
-  .kandeel__halo,
-  .night__writing > * {
-    animation: none;
+  .hero {
+    height: var(--view);
   }
 }

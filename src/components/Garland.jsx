@@ -45,12 +45,12 @@ const RINGS = [
   [3, 0, 5],
 ]
 
-export const SHADES = {
+const SHADES = {
   yellow: ['#ec9f16', '#f4b222', '#f8c234', '#f3ad1e', '#e39410'],
   orange: ['#e2691a', '#ec7d24', '#f18f30', '#e5741b', '#d35d10'],
 }
 
-export function flowerPetals(seed) {
+function flowerPetals(seed) {
   const rand = seeded(seed)
   return RINGS.map(([r1, r0, count], ring) => {
     const turn = rand() * Math.PI

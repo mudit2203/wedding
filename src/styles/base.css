@@ -86,66 +86,6 @@ textarea {
 
 .section {
   padding-block: var(--space-9);
-  /* A warm lamp-lit glow from above, so plain ivory sections never feel flat. */
-  background-image:
-    radial-gradient(60% 22rem at 50% 0%, rgb(255 205 120 / 0.16), transparent 75%),
-    radial-gradient(35% 18rem at 100% 100%, rgb(200 48 110 / 0.05), transparent 75%);
-}
-
-/*
- * Gloss: a soft highlight that slides across a card once as it comes into
- * view, and again on hover, like light catching gold leaf.
- */
-.gloss {
-  position: relative;
-  overflow: hidden;
-}
-
-.gloss::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-  background: linear-gradient(115deg, transparent 38%, rgb(255 250 230 / 0.5) 50%, transparent 62%);
-  translate: -110% 0;
-  pointer-events: none;
-}
-
-.is-in.gloss::after,
-.is-in .gloss::after {
-  animation: gloss 1.8s var(--ease) 0.6s;
-}
-
-.gloss:hover::after {
-  animation: gloss 1.4s var(--ease);
-}
-
-@keyframes gloss {
-  to {
-    translate: 110% 0;
-  }
-}
-
-/* Gold leaf text, for the few words that should catch the light */
-.foil {
-  background: linear-gradient(100deg, #b8862f 0%, #f3dca6 30%, #c9973f 50%, #fff1c7 62%, #b8862f 100%) 0 0 / 220% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  animation: foil 9s ease-in-out infinite alternate;
-}
-
-@keyframes foil {
-  to {
-    background-position: 100% 0;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .gloss::after,
-  .foil {
-    animation: none;
-  }
 }
 
 /* Type helpers */

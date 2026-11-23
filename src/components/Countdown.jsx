@@ -19,7 +19,7 @@ export default function Countdown({ to, tone = 'light' }) {
     <div className={`countdown countdown--${tone}`} role="timer" aria-label="Time until the wedding">
       {LABELS.map(([unit, label, hindi]) => (
         <div key={unit} className="countdown__cell">
-          <span className="countdown__value foil">{String(left[unit]).padStart(2, '0')}</span>
+          <span className="countdown__value">{String(left[unit]).padStart(2, '0')}</span>
           <span className="countdown__label">
             <span className="hindi">{hindi}</span> {label}
           </span>

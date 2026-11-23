@@ -10,7 +10,6 @@ export default function Contact() {
     <>
       <PageHeader
         gate="indigo"
-        decor="rajnigandha"
         hindi="संपर्क करें"
         title="Contact"
         intro="For travel, stay or anything at all, call or message the family. Someone will always pick up."

@@ -1,7 +1,5 @@
 import { archPath } from './arch.js'
-import AshokToran from './AshokToran.jsx'
 import Garland from './Garland.jsx'
-import Rajnigandha from './Rajnigandha.jsx'
 import { Birds, WordReveal } from './Scenery.jsx'
 import './PageHeader.css'
 
@@ -11,23 +9,18 @@ const capPath = archPath(CAP)
 // The same outline left open at the bottom, so its bands run straight into the jambs.
 const capEdge = capPath.replace(/ Z$/, '')
 
-// What hangs across the top of the wall, so no two neighbouring pages look alike.
-const DECOR = { marigold: Garland, rajnigandha: Rajnigandha, ashok: AshokToran }
-
 /**
  * The opening of each inner page is a painted Jaipur gateway, each page in
  * its own colour like the four gates of the City Palace. Marigold ladis hang
- * across the wall (or rajnigandha, or ashok leaves), and the page title sits inside the doorway.
+ * across the wall, and the page title sits inside the doorway.
  *
  * `gate` picks the colour: peacock, rose, lotus, leheriya, sandstone,
- * indigo or emerald. `decor` picks what hangs across the top: marigold
- * ladis, rajnigandha swags or an ashok-leaf toran.
+ * indigo or emerald.
  */
-export default function PageHeader({ hindi, title, intro, gate = 'peacock', decor = 'marigold', children }) {
-  const Decor = DECOR[decor]
+export default function PageHeader({ hindi, title, intro, gate = 'peacock', children }) {
   return (
     <header className={`page-header page-header--${gate}`}>
-      <Decor />
+      <Garland />
       <div className="page-header__door">
         <svg className="page-header__cap" viewBox="0 0 900 300" aria-hidden="true">
           <path d={capPath} className="page-header__sky" />

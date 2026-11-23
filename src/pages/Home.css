@@ -6,29 +6,16 @@
   text-align: center;
 }
 
-/* Shri Ganesh ji and Govind Dev Ji's charan, drawn in a fine gold line */
-.invitation__blessings {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
-  align-items: start;
-  gap: var(--space-7);
+.invitation__deity {
+  width: 9rem;
+  overflow: hidden;
+  border-radius: 999px 999px var(--radius) var(--radius);
+  box-shadow: 0 0 0 4px var(--ivory), 0 0 0 5px var(--gold-soft), var(--shadow-soft);
+}
+
+.invitation__deity img {
   width: 100%;
-}
-
-.blessing {
-  display: grid;
-  justify-items: center;
-  gap: var(--space-3);
-}
-
-.blessing img {
-  width: min(100%, 17rem);
   height: auto;
-}
-
-.blessing__hindi {
-  font-size: var(--step-1);
-  color: var(--olive-deep);
 }
 
 .invitation__cloth {
