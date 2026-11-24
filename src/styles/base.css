@@ -179,3 +179,9 @@ textarea {
 .page-loading {
   min-height: 100vh;
 }
+
+/* Looping decorations rest while they are off screen (see usePauseOffscreen). */
+.is-offscreen,
+.is-offscreen * {
+  animation-play-state: paused !important;
+}
