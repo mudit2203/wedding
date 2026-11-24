@@ -1,0 +1,159 @@
+.garland {
+  --flower: clamp(1.4rem, 1.1rem + 0.9vw, 2rem);
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 2;
+  height: 0;
+  pointer-events: none;
+}
+
+.garland__defs {
+  position: absolute;
+}
+
+/* Rope and mango leaves */
+.garland__rope {
+  position: absolute;
+  inset: 0 0 auto;
+  width: 100%;
+  height: 2.6rem;
+}
+
+.garland__cord {
+  fill: none;
+  stroke: #9b7432;
+  stroke-width: 3;
+  vector-effect: non-scaling-stroke;
+}
+
+.garland__cord--twist {
+  stroke: #e1c48a;
+  stroke-width: 1.2;
+  stroke-dasharray: 3 4;
+}
+
+.garland__leaves {
+  position: absolute;
+  inset: 0.2rem 0 auto;
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0 0.4rem;
+  list-style: none;
+}
+
+.garland__leaves li {
+  width: calc(var(--flower) * 0.75);
+  transform-origin: 50% 0;
+  animation: leaf-sway 4.2s ease-in-out calc(var(--i) * -0.33s) infinite alternate;
+}
+
+.garland__leaves svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.garland__vein {
+  fill: none;
+  stroke: #cfe0a4;
+  stroke-width: 0.8;
+  opacity: 0.6;
+}
+
+@keyframes leaf-sway {
+  from {
+    transform: rotate(-4deg);
+  }
+
+  to {
+    transform: rotate(4deg);
+  }
+}
+
+/* Strands of marigolds */
+.garland__strands {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.garland__strand {
+  position: absolute;
+  top: 0.5rem;
+  left: clamp(0.6rem, var(--x), calc(100% - 0.6rem));
+  width: var(--flower);
+  translate: -50% 0;
+  transform-origin: 50% 0;
+  animation:
+    strand-drop 1.6s cubic-bezier(0.3, 1.4, 0.5, 1) var(--drop) both,
+    strand-sway var(--sway) ease-in-out calc(1.6s + var(--drop)) infinite alternate;
+}
+
+.garland__strand svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  filter: drop-shadow(0 3px 2px rgb(90 50 10 / 0.18));
+}
+
+.garland__thread {
+  stroke: #9b7432;
+  stroke-width: 1;
+}
+
+.garland__bead {
+  fill: #e7c27a;
+}
+
+.garland__bell {
+  fill: #c9a15a;
+  stroke: #7a5520;
+  stroke-width: 0.6;
+}
+
+.garland__tassel {
+  stroke: var(--crimson);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+}
+
+@keyframes strand-drop {
+  from {
+    translate: -50% -110%;
+    opacity: 0;
+  }
+
+  40% {
+    opacity: 1;
+  }
+}
+
+@keyframes strand-sway {
+  from {
+    rotate: -1.6deg;
+  }
+
+  to {
+    rotate: 1.6deg;
+  }
+}
+
+/* On narrow screens every other strand is enough. */
+@media (max-width: 40rem) {
+  .garland__strand:nth-child(even) {
+    display: none;
+  }
+
+  .garland__leaves li:nth-child(even) {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .garland__strand,
+  .garland__leaves li {
+    animation: none;
+  }
+}

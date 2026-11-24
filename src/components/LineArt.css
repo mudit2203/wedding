@@ -1,0 +1,6 @@
+.line-art {
+  display: block;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+}

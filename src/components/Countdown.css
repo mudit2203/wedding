@@ -1,0 +1,55 @@
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  width: min(100%, 34rem);
+  margin-inline: auto;
+}
+
+.countdown__cell {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-1);
+  padding-inline: var(--space-2);
+}
+
+.countdown__cell + .countdown__cell {
+  border-left: 1px solid currentColor;
+  border-left-color: rgb(from currentColor r g b / 0.2);
+}
+
+.countdown__value {
+  font-size: var(--step-3);
+  font-weight: 500;
+  line-height: 1;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+.countdown__label {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  text-align: center;
+}
+
+.countdown__label .hindi {
+  display: block;
+  font-size: 0.85rem;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.countdown--light {
+  color: var(--olive-deep);
+}
+
+.countdown--dark {
+  color: var(--ivory);
+}
+
+.countdown__done {
+  display: block;
+  font-size: var(--step-3);
+  text-align: center;
+}

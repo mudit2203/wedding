@@ -1,0 +1,29 @@
+.contact-share {
+  background:
+    radial-gradient(60rem 30rem at 80% 20%, rgb(231 194 122 / 0.18), transparent 70%),
+    var(--ivory-deep);
+}
+
+.contact-share__inner {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  align-items: center;
+  gap: var(--space-8);
+  max-width: 58rem;
+}
+
+.contact-share__text {
+  display: grid;
+  justify-items: start;
+  gap: var(--space-4);
+}
+
+.contact-share__hindi {
+  font-size: var(--step-1);
+  color: var(--gold);
+}
+
+.contact-share h2 {
+  font-size: var(--step-3);
+  font-weight: 400;
+}

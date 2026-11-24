@@ -1,0 +1,101 @@
+.page-header {
+  position: relative;
+  padding-bottom: var(--space-9);
+  text-align: center;
+  background: linear-gradient(180deg, var(--ivory) 0%, var(--sage-light) 100%);
+  overflow: hidden;
+}
+
+/* The Hawa Mahal skyline in Jaipur pink, fading out below its domes. */
+.page-header::after {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  height: 42%;
+  background: linear-gradient(180deg, var(--gulabi) 0%, transparent 70%);
+  opacity: 0.28;
+  mask: url('/images/guide/hawa-mahal.webp') center bottom / auto 100% no-repeat;
+  -webkit-mask: url('/images/guide/hawa-mahal.webp') center bottom / auto 100% no-repeat;
+  pointer-events: none;
+}
+
+.page-header__art {
+  position: absolute;
+  bottom: var(--space-5);
+  width: clamp(4rem, 2rem + 7vw, 8.5rem);
+  opacity: 0.75;
+}
+
+.page-header__art--left {
+  left: clamp(0.5rem, 4vw, 4rem);
+}
+
+.page-header__art--right {
+  right: clamp(0.5rem, 4vw, 4rem);
+  transform: scaleX(-1);
+}
+
+.page-header__art--rajnigandha {
+  width: clamp(3rem, 1.5rem + 5vw, 6rem);
+}
+
+@media (max-width: 40rem) {
+  .page-header__art {
+    bottom: var(--space-3);
+    opacity: 0.5;
+  }
+}
+
+.page-header__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: var(--space-3);
+  /* Room for the short strands of marigolds in the middle. */
+  padding-top: clamp(6.5rem, 4rem + 5vw, 8.5rem);
+}
+
+.page-header__hindi {
+  font-size: var(--step-1);
+  color: var(--gold);
+}
+
+.page-header__title {
+  font-size: var(--step-4);
+  font-weight: 400;
+  color: var(--olive-deep);
+}
+
+.page-header__intro {
+  margin-top: var(--space-2);
+}
+
+/* Jump links under a page title (days, events) */
+.day-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+
+.day-links__item {
+  display: grid;
+  gap: 2px;
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgb(255 253 246 / 0.7);
+  text-decoration: none;
+  font-size: var(--step--1);
+  color: var(--olive-deep);
+}
+
+.day-links__item .eyebrow {
+  font-size: 0.62rem;
+  color: var(--gold);
+}
+
+.page-header__action {
+  margin-top: var(--space-5);
+}
