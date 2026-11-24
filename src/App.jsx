@@ -5,6 +5,7 @@ import Nav from './components/Nav.jsx'
 import Opening from './components/Opening.jsx'
 import SoundToggle from './components/SoundToggle.jsx'
 import { SoundProvider } from './context/SoundContext.jsx'
+import { usePauseOffscreen } from './hooks/usePauseOffscreen.js'
 import Home from './pages/Home.jsx'
 
 // Every page but Home loads on demand, so the first visit stays light.
@@ -44,6 +45,8 @@ function ScrollToTop() {
 }
 
 function Layout() {
+  usePauseOffscreen()
+
   return (
     <>
       <ScrollToTop />

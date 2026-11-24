@@ -6,7 +6,7 @@ import './Reveal.css'
  * `delay` is in milliseconds, for staggering items in a row.
  */
 export default function Reveal({ as: Tag = 'div', delay = 0, className = '', children, ...props }) {
-  const [ref, inView] = useInView()
+  const [ref, inView] = useInView({ threshold: 0.05, rootMargin: '0px 0px 6% 0px' })
   return (
     <Tag
       ref={ref}
